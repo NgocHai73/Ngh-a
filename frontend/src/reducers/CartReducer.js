@@ -3,6 +3,7 @@ import {
   REMOVE_CART_ITEM,
   SAVE_SHIPPING_INFO,
   SAVE_NOTE_BUY,
+  CLEAR_CART,
 
 } from "../constans/CartConstans";
 
@@ -48,7 +49,13 @@ export const cartReducer = (
           ...state,
           noteBuy: action.payload,
         };
+        case CLEAR_CART:
+  return {
+    ...state,
+    cartItems: [],
+  };
     default:
       return state;
+      
   }
 };

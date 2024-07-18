@@ -1,7 +1,7 @@
 import React from "react";
 import "./Cart.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToCart, removeItemsFromCart } from "../../actions/CartAction";
+import { addItemsToCart, clearCart, removeItemsFromCart } from "../../actions/CartAction";
 import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import { Link } from "react-router-dom";
@@ -46,8 +46,9 @@ const Cart = ({ history }) => {
   };
 
   const checkoutHandler = () => {
-    history.push("/login?redirect=shipping"); 
-  };
+  dispatch(clearCart());
+  history.push("/login?redirect=shipping");
+};
 
   return (
     <>
